@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "chaoshanCuisine",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-pOUUUpTrZXg82hPIrLii3fjKyJuZExAWxflOq4ELxmg=",
+    "hash": "sha256-+z0M2EYyczv3FgcARI4uBxm/9QT1ksUk8qnApZTg+Yc=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.ikrs475e5v.js"
@@ -1242,16 +1242,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "chaoshanCuisine.wasm",
-        "name": "chaoshanCuisine.6h4o5ueehs.wasm",
-        "hash": "sha256-VhbUgYQc3ZqFxVo9vXH+dDLaVtJtS77uF38XPSOZfGk=",
+        "name": "chaoshanCuisine.lyhkm69m8t.wasm",
+        "hash": "sha256-E6qgfjbRUpi7l30NhnwZngel+Qp9WYbNQXlUdPHkN9Q=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "chaoshanCuisine.pdb",
-        "name": "chaoshanCuisine.3v57tbubbj.pdb",
-        "hash": "sha256-bwKZRAowQqgTJuvBl7x2Og0vcUmyJf2GvMujjlzlWQI=",
+        "name": "chaoshanCuisine.uhugsfls9c.pdb",
+        "hash": "sha256-nnmiaVqLK7rOEeOovN/jBEnugF8DzJ/1RJDD5199jjk=",
         "cache": "force-cache"
       }
     ],

@@ -1,4 +1,3 @@
-/* 自定义主题色、全局字体、布局、轮播、卡片、视差、图片比例等样式 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
 
 :root {
@@ -17,6 +16,20 @@ body {
 
 .page {
     animation: fadeIn 0.8s ease-out;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--dark);
+}
+
+main {
+    flex: 1;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -36,6 +49,7 @@ h1, h2, h3 {
     font-family: 'Noto Serif SC', serif;
 }
 
+/* 主题 */
 .main-title {
     text-align: center;
     margin-top: 2rem;
@@ -60,47 +74,50 @@ h1, h2, h3 {
     vertical-align: middle;
 }
 
+/* 导航栏 */
 .nav-header {
     background: var(--primary);
-    padding: 2.5rem 0 1rem;
+    padding: 2rem 0 1rem;
     text-align: center;
     border-bottom: 3px solid var(--gold);
-    position: relative;
 }
 
-    .nav-header::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 8px;
-        background: var(--gold);
-        border-radius: 4px;
-    }
+.nav-main-title {
+    margin-bottom: 0.5rem;
+}
+
+.nav-motto-main, .nav-motto-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    display: inline-block;
+    line-height: 1.1;
+}
+
+.nav-motto-divider {
+    margin: 0 0.8rem;
+    color: var(--gold);
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
 
 .nav-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    margin-top: 0.5rem;
 }
 
 .brand-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .brand-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgba(255,255,255,0.95);
-    font-family: 'Noto Serif SC', serif;
-    letter-spacing: 5px;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 3px;
 }
 
 .nav-menu {
-    background: #2B3A42;
     padding: 10px 0;
     display: flex;
     flex-direction: column;
@@ -118,23 +135,23 @@ h1, h2, h3 {
     align-items: center;
     gap: 10px;
     padding: 12px 20px;
-    color: #e0d5c1 !important;
+    color: #e0d5c1;
     border-radius: 25px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     font-weight: 500;
     font-size: 1.3rem;
 }
 
     .nav-link:hover {
         background: rgba(255,255,255,0.1);
-        color: var(--gold) !important;
+        color: var(--gold);
         transform: translateX(5px);
     }
 
     .nav-link.active {
         background: var(--primary);
-        color: white !important;
+        color: white;
         box-shadow: 0 4px 10px rgba(196, 60, 44, 0.4);
     }
 
@@ -144,6 +161,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
+/* 卡片 */
 .chao-shan-card {
     background: white;
     border: 2px solid var(--primary);
@@ -164,6 +182,7 @@ h1, h2, h3 {
         color: var(--gold);
     }
 
+/* 轮播 */
 .carousel-indicators {
     text-align: center;
     margin-top: 10px;
@@ -173,19 +192,19 @@ h1, h2, h3 {
     height: 12px;
     width: 12px;
     margin: 0 5px;
-    background-color: #bbb;
+    background: #bbb;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
 }
 
     .dot.active {
-        background-color: var(--primary);
+        background: var(--primary);
     }
 
 .carousel-image-wrapper {
     width: 100%;
-    height: 228px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,10 +220,10 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
-/* 故事巷视差区域 */
+/* 故事巷 */
 .parallax {
     position: relative;
-    height: 228px;
+    height: 160px;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -213,13 +232,6 @@ h1, h2, h3 {
     justify-content: center;
     color: white;
     text-shadow: 2px 2px 4px #000;
-}
-
-/* 移动端视差高度可适当缩小 */
-@media (max-width: 768px) {
-    .parallax {
-        height: 160px;
-    }
 }
 
 .bg1 {
@@ -251,6 +263,7 @@ h1, h2, h3 {
     max-width: 800px;
 }
 
+/* 其他图片限制 */
 .food-detail-img {
     max-height: 180px;
     width: auto;
@@ -269,6 +282,7 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
+/* 厨房 */
 .kitchen-area {
     display: flex;
     gap: 30px;
@@ -300,6 +314,7 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
+/* 时令网格 */
 .seasonal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -331,6 +346,7 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+/* BGM */
 .bgm-player {
     display: flex;
     align-items: center;
@@ -344,39 +360,54 @@ h1, h2, h3 {
     z-index: 999;
 }
 
-.building-silhouette {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: repeating-linear-gradient( 90deg, transparent 0, transparent 19px, var(--primary) 20px, var(--primary) 21px );
-    opacity: 0.3;
-    mask-image: linear-gradient(to top, black, transparent);
-}
+/* ========== 手机端适配 ========== */
+@media (max-width: 992px) {
+    .page {
+        flex-direction: column;
+    }
 
-@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+    }
+
     .nav-menu {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 5px;
+        padding: 8px;
     }
 
     .nav-item {
-        margin: 2px;
+        margin: 3px 5px;
     }
 
     .nav-link {
-        padding: 8px 12px;
+        padding: 8px 15px;
         font-size: 1.1rem;
+        border-radius: 20px;
     }
 
-    .motto-main, .motto-sub {
+    .nav-motto-main, .nav-motto-sub {
+        font-size: 1.6rem;
+    }
+
+    .nav-motto-divider {
+        font-size: 1.4rem;
+    }
+
+    .brand-text {
+        font-size: 1rem;
+    }
+
+    .main-title .motto-main, .main-title .motto-sub {
         font-size: 2.8rem;
     }
 
-    .motto-divider {
+    .main-title .motto-divider {
         font-size: 2rem;
     }
 
@@ -385,6 +416,72 @@ h1, h2, h3 {
     }
 
     .parallax {
+        height: 120px;
+    }
+
+    .story-content {
+        margin: 15px 10px;
+    }
+
+    .kitchen-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bowl {
+        width: 160px;
+        height: 160px;
+        padding-top: 30px;
+    }
+
+    .seasonal-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .gallery-img, .food-detail-img {
+        max-height: 150px;
+    }
+
+    .bgm-player {
+        position: static;
+        margin: 10px auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 1.1rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 6px 10px;
+    }
+
+    .nav-motto-main, .nav-motto-sub {
+        font-size: 1.4rem;
+    }
+
+    .main-title .motto-main, .main-title .motto-sub {
+        font-size: 2rem;
+    }
+
+    .carousel-image-wrapper {
+        height: 80px;
+    }
+
+    .parallax {
+        height: 100px;
+    }
+
+    .bowl {
+        width: 140px;
         height: 140px;
+    }
+
+    .ingredient {
+        font-size: 1rem;
+        padding: 6px;
     }
 }
