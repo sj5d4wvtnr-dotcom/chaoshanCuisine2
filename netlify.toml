@@ -1,3 +1,8 @@
 [build]
+  command = "curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 10.0 && export PATH=\"$HOME/.dotnet:$PATH\" && dotnet publish -c Release -o release"
   publish = "release/wwwroot"
-  command = "wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x dotnet-install.sh && ./dotnet-install.sh --channel 10.0 && export PATH=\"$PATH:$HOME/.dotnet\" && dotnet publish -c Release -o release"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
