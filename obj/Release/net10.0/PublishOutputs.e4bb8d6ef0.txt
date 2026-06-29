@@ -1,0 +1,3 @@
+C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\release\chaoshanCuisine.runtimeconfig.json
+C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\release\dotnet.js
+C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\release\web.config
