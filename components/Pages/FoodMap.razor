@@ -1,0 +1,74 @@
+@page "/foodmap"
+
+<h3 class="mt-4 fs-1">📍 三市寻味 · 潮汕美食地图</h3>
+<p class="fs-4">潮汕由汕头、潮州、揭阳三市组成，十里不同音，却同有对“鲜、香、巧”的追求。</p>
+
+<div class="map-container" style="display: flex; justify-content: center;">
+    <svg viewBox="0 0 500 400" width="100%" style="max-width: 500px;">
+        <rect width="500" height="400" fill="#fef9e7" rx="20" />
+        <circle cx="150" cy="180" r="35" fill="#C43C2C" opacity="0.9" cursor="pointer"
+                @onclick='() => SelectCity("shantou")' />
+        <text x="150" y="186" text-anchor="middle" fill="white" font-size="14" font-weight="bold">汕头</text>
+        <circle cx="280" cy="100" r="35" fill="#D4A843" opacity="0.9" cursor="pointer"
+                @onclick='() => SelectCity("chaozhou")' />
+        <text x="280" y="106" text-anchor="middle" fill="white" font-size="14" font-weight="bold">潮州</text>
+        <circle cx="350" cy="260" r="35" fill="#2B3A42" opacity="0.9" cursor="pointer"
+                @onclick='() => SelectCity("jieyang")' />
+        <text x="350" y="266" text-anchor="middle" fill="white" font-size="14" font-weight="bold">揭阳</text>
+        <line x1="180" y1="165" x2="250" y2="115" stroke="#ccc" stroke-dasharray="5" />
+        <line x1="250" y1="130" x2="320" y2="240" stroke="#ccc" stroke-dasharray="5" />
+    </svg>
+</div>
+
+@if (selectedCity != null)
+{
+    <div class="chao-shan-card mt-3">
+        <h4 class="fs-2">@cityInfo[selectedCity].Name</h4>
+        <div class="row mt-3">
+            <div class="col-6 text-center">
+                <img src="images/@cityInfo[selectedCity].Image1" class="img-fluid rounded food-detail-img" alt="@cityInfo[selectedCity].Food1" />
+                <p class="fw-bold fs-4 mt-1 mb-0">@cityInfo[selectedCity].Food1</p>
+            </div>
+            <div class="col-6 text-center">
+                <img src="images/@cityInfo[selectedCity].Image2" class="img-fluid rounded food-detail-img" alt="@cityInfo[selectedCity].Food2" />
+                <p class="fw-bold fs-4 mt-1 mb-0">@cityInfo[selectedCity].Food2</p>
+            </div>
+        </div>
+        <p class="mt-2 fs-4">@cityInfo[selectedCity].Description</p>
+        <small class="text-muted fs-5">🍵 小贴士：@cityInfo[selectedCity].Tip</small>
+    </div>
+}
+
+@code {
+    string? selectedCity = null;
+
+    Dictionary<string, (string Name, string Food1, string Image1, string Food2, string Image2, string Description, string Tip)> cityInfo = new()
+    {
+        ["shantou"] = (
+            "汕头 · 百载商埠",
+            "牛肉丸", "niurouwan.png",
+            "蚝烙", "haolao.png",
+            "汕头是潮汕美食的集大成者，牛肉丸弹牙鲜美，蚝烙外酥里嫩，是街头巷尾的至味。",
+            "牛肉丸蘸沙茶酱，蚝烙配鱼露，风味更佳。"
+        ),
+        ["chaozhou"] = (
+            "潮州 · 府城古韵",
+            "春饼", "chunbing.png",
+            "护国菜", "huguocai.png",
+            "潮州菜精细雅致，春饼酥脆清香，护国菜羹滑味醇，尽显工夫。",
+            "春饼要趁热吃，护国菜宜配高汤。"
+        ),
+        ["jieyang"] = (
+            "揭阳 · 岭南水城",
+            "普宁豆干", "puningdougan.png",
+            "乒乓粿", "pingpangguo.png",
+            "揭阳美食充满田园气息，豆干外酥内嫩，乒乓粿软糯香甜。",
+            "豆干蘸韭菜盐水，乒乓粿配茶最宜。"
+        )
+    };
+
+    void SelectCity(string key)
+    {
+        selectedCity = key;
+    }
+}

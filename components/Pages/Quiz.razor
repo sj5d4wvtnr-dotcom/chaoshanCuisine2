@@ -1,0 +1,105 @@
+@page "/quiz"
+@implements IDisposable
+
+<h3 class="mt-4 fs-1">🧠 潮汕味道知多少？</h3>
+
+@if (!quizEnded)
+{
+    <div class="chao-shan-card">
+        <p class="fs-4">第 @(currentIndex + 1)/@questions.Count 题</p>
+        <p class="fs-4">⏳ 剩余时间：@timeLeft 秒</p>
+        <h4 class="fs-2">@questions[currentIndex].Text</h4>
+        <div class="d-grid gap-2">
+            @foreach (var opt in questions[currentIndex].Options)
+            {
+                <button class="btn btn-outline-dark fs-4" @onclick="() => Answer(opt)">@opt</button>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="chao-shan-card text-center">
+        <h2 class="fs-1">🎉 测验结束</h2>
+        <p class="fs-3">你答对了 @score / @questions.Count 题</p>
+        <p class="fs-3">
+            @if (score == questions.Count)
+            {
+                <span>🏆 潮汕食神！</span>
+            }
+            else if (score >= 7)
+            {
+
+                <span>🥢 资深食客</span>
+            }
+            else if (score >= 4)
+            {
+
+                <span>🍚 还需多吃</span>
+            }
+            else
+            {
+
+                <span>👶 潮菜小白</span>
+            }
+        </p>
+        <button class="btn btn-primary fs-4" @onclick="Restart">再测一次</button>
+    </div>
+}
+
+@code {
+    class Question
+    {
+        public string Text { get; set; } = "";
+        public List<string> Options { get; set; } = new();
+        public string CorrectAnswer { get; set; } = "";
+    }
+
+    List<Question> questions = new()
+    {
+        new() { Text = "潮汕牛肉丸最经典的吃法是？", Options = new(){"红烧","火锅","烧烤","刺身"}, CorrectAnswer = "火锅" },
+        new() { Text = "“护国菜”的主要食材是？", Options = new(){"番薯叶","菠菜","空心菜","韭菜"}, CorrectAnswer = "番薯叶" },
+        new() { Text = "下列哪种不是潮汕粿品？", Options = new(){"红桃粿","鼠壳粿","乒乓粿","老婆饼"}, CorrectAnswer = "老婆饼" },
+        new() { Text = "工夫茶中“关公巡城”指的是？", Options = new(){"洗杯","斟茶","闻香","煮水"}, CorrectAnswer = "斟茶" },
+        new() { Text = "潮汕人冬至必吃的食物是？", Options = new(){"汤圆","饺子","冬节鸽","冬节丸"}, CorrectAnswer = "冬节丸" },
+        new() { Text = "普宁豆酱的主要原料是什么？", Options = new(){"黄豆","黑豆","绿豆","红豆"}, CorrectAnswer = "黄豆" },
+        new() { Text = "“蚝烙”的主要配料不包括？", Options = new(){"鸡蛋","地瓜粉","蚝","面粉"}, CorrectAnswer = "面粉" },
+        new() { Text = "潮汕卤水的灵魂香料是？", Options = new(){"八角","花椒","南姜","辣椒"}, CorrectAnswer = "南姜" },
+        new() { Text = "潮汕俗语“茶薄人情厚”中的“茶薄”指？", Options = new(){"茶叶很少","茶汤淡","茶点薄","茶杯薄"}, CorrectAnswer = "茶汤淡" },
+        new() { Text = "每年正月初七潮汕人有吃什么的习俗？", Options = new(){"七样羹","长寿面","年糕","鱼生"}, CorrectAnswer = "七样羹" },
+    };
+
+    int currentIndex = 0;
+    int score = 0;
+    bool quizEnded = false;
+    int timeLeft = 30;
+    Timer? countdownTimer;
+
+    protected override void OnInitialized() => StartTimer();
+
+    void StartTimer()
+    {
+        countdownTimer?.Dispose();
+        timeLeft = 30;
+        countdownTimer = new Timer(new TimerCallback(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                if (timeLeft > 0 && !quizEnded) { timeLeft--; StateHasChanged(); }
+                if (timeLeft == 0 && !quizEnded) Answer("");
+            });
+        }), null, 1000, 1000);
+    }
+
+    void Answer(string selected)
+    {
+        if (selected == questions[currentIndex].CorrectAnswer) score++;
+        if (currentIndex < questions.Count - 1) { currentIndex++; timeLeft = 30; }
+        else { quizEnded = true; countdownTimer?.Dispose(); }
+        StateHasChanged();
+    }
+
+    void Restart() { currentIndex = 0; score = 0; quizEnded = false; StartTimer(); }
+
+    public void Dispose() => countdownTimer?.Dispose();
+}

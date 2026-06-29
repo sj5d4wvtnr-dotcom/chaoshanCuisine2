@@ -1,0 +1,135 @@
+@page "/kitchen"
+
+<h3 class="mt-4 fs-1">🍳 虚拟厨房 · 潮味实验室</h3>
+<p class="fs-4">将食材拖入碗中，看看能组合出什么潮汕美味（或黑暗料理）！</p>
+
+<div class="kitchen-area">
+    <div class="ingredient-panel">
+        <h5 class="fs-3">🥬 食材库</h5>
+        <div class="d-flex flex-wrap">
+            @foreach (var item in ingredients)
+            {
+                <div class="ingredient fs-4" draggable="true"
+                     @ondragstart="(e) => OnDragStart(e, item)"
+                     @ondragend="(e) => isDragging = false">
+                    @item.Emoji @item.Name
+                </div>
+            }
+        </div>
+    </div>
+    <div class="bowl-panel">
+        <h5 class="fs-3">🥣 我的碗</h5>
+        <div class="bowl"
+             @ondrop="OnDrop"
+             @ondragover="AllowDragOver"
+             @ondragover:preventDefault="true">
+            @if (selectedIngredients.Count == 0)
+            {
+                <p class="text-muted fs-4">把食材拖进碗里</p>
+            }
+            else
+            {
+                foreach (var ing in selectedIngredients)
+                {
+                    <span class="badge bg-secondary m-1 fs-4">@ing.Emoji @ing.Name</span>
+                }
+            }
+        </div>
+        <button class="btn btn-danger mt-3 fs-4" @onclick="Combine" disabled="@(selectedIngredients.Count < 2)">
+            🔥 开煮
+        </button>
+        <button class="btn btn-outline-secondary mt-2 fs-4" @onclick="ClearBowl">清空碗</button>
+    </div>
+</div>
+
+@if (result != null)
+{
+    <div class="chao-shan-card mt-3 text-center">
+        <h4 class="fs-2">✨ @result.DishName</h4>
+        <div class="display-1">@result.Emoji</div>
+        <p class="fs-3">评分：@result.Score/100</p>
+        <p class="fs-4">@result.Description</p>
+    </div>
+}
+
+@code {
+    class Ingredient { public string Name { get; set; } = ""; public string Emoji { get; set; } = ""; }
+    List<Ingredient> ingredients = new()
+    {
+        new(){Name="牛肉", Emoji="🥩"}, new(){Name="粿条", Emoji="🍜"},
+        new(){Name="沙茶", Emoji="🥜"}, new(){Name="蚝", Emoji="🦪"},
+        new(){Name="鸡蛋", Emoji="🥚"}, new(){Name="芋头", Emoji="🍠"},
+        new(){Name="糖", Emoji="🍬"},   new(){Name="鼠壳草", Emoji="🌿"},
+        new(){Name="糯米", Emoji="🍚"}, new(){Name="香菇", Emoji="🍄"},
+        new(){Name="豆酱", Emoji="🫘"}, new(){Name="韭菜", Emoji="🥬"},
+        new(){Name="绿豆", Emoji="🫛"}, new(){Name="猪肉", Emoji="🐷"},
+        new(){Name="虾米", Emoji="🦐"}, new(){Name="冬瓜", Emoji="🍈"},
+    };
+
+    List<Ingredient> selectedIngredients = new();
+    Ingredient? draggedItem;
+    bool isDragging = false;
+
+    record Dish(string DishName, string Emoji, int Score, string Description);
+    Dish? result;
+
+    void OnDragStart(DragEventArgs e, Ingredient item)
+    {
+        draggedItem = item;
+        isDragging = true;
+        e.DataTransfer.DropEffect = "move";
+    }
+
+    void AllowDragOver(DragEventArgs e)
+    {
+        e.DataTransfer.DropEffect = "move";
+    }
+
+    void OnDrop(DragEventArgs e)
+    {
+        if (draggedItem != null && !selectedIngredients.Any(x => x.Name == draggedItem.Name))
+        {
+            selectedIngredients.Add(draggedItem);
+        }
+        draggedItem = null;
+        isDragging = false;
+        StateHasChanged();
+    }
+
+    void ClearBowl()
+    {
+        selectedIngredients.Clear();
+        result = null;
+    }
+
+    void Combine()
+    {
+        var names = selectedIngredients.Select(x => x.Name).ToHashSet();
+        if (names.Contains("牛肉") && names.Contains("粿条") && names.Contains("沙茶"))
+            result = new Dish("湿炒牛肉粿", "🍝", 95, "酱汁包裹每一根粿条，潮汕夜宵之王。");
+        else if (names.Contains("蚝") && names.Contains("鸡蛋") && names.Contains("粿条"))
+            result = new Dish("蚝烙", "🦪", 92, "外焦里嫩，蘸鱼露吃，鲜美无比。");
+        else if (names.Contains("芋头") && names.Contains("糖") && names.Contains("糯米"))
+            result = new Dish("甜芋泥白果", "🍬", 88, "宴席必备甜汤，细腻如脂。");
+        else if (names.Contains("鼠壳草") && names.Contains("糯米") && names.Contains("糖"))
+            result = new Dish("鼠壳粿", "🌿", 90, "清明前后最时令，清香软糯。");
+        else if (names.Contains("韭菜") && names.Contains("鸡蛋") && names.Contains("粿条"))
+            result = new Dish("韭菜粿", "🥟", 83, "蒸煎两相宜，家乡的味道。");
+        else if (names.Contains("香菇") && names.Contains("糯米") && names.Contains("豆酱"))
+            result = new Dish("潮汕咸肉粽", "🍙", 75, "料足味咸，一个管饱。");
+        else if (names.Contains("豆酱") && names.Contains("牛肉"))
+            result = new Dish("豆酱炒牛肉", "🥩", 78, "普宁豆酱加持，咸香下饭。");
+        else if (names.Contains("绿豆") && names.Contains("糯米") && names.Contains("糖"))
+            result = new Dish("绿豆爽", "🥣", 82, "清甜消暑，潮式糖水经典。");
+        else if (names.Contains("猪肉") && names.Contains("香菇") && names.Contains("虾米"))
+            result = new Dish("潮汕咸肉粽", "🍙", 76, "料足味咸，端午必备。");
+        else if (names.Contains("冬瓜") && names.Contains("糖") && names.Contains("糯米"))
+            result = new Dish("冬瓜册", "🍈", 70, "冬瓜蜜饯，甜入心脾。");
+        else if (names.Contains("猪肉") && names.Contains("粿条") && names.Contains("沙茶"))
+            result = new Dish("沙茶猪肉粿", "🍲", 83, "沙茶与猪肉的完美邂逅。");
+        else if (names.Contains("蚝") && names.Contains("韭菜"))
+            result = new Dish("韭菜炒蚝", "🦪", 80, "家常小炒，鲜上加鲜。");
+        else
+            result = new Dish("黑暗潮菜", "👾", 15, "潮汕阿嬷看到会摇头……");
+    }
+}

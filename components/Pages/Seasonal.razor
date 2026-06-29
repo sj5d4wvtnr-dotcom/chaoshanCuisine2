@@ -1,0 +1,62 @@
+@page "/seasonal"
+
+<h3 class="mt-4 fs-1">📅 潮汕时令 · 食俗</h3>
+<p class="fs-4">潮汕人讲究“时年八节”，不同的节气和神明诞辰都有专属的粿品与菜肴。</p>
+
+<div class="seasonal-grid">
+    @foreach (var month in months)
+    {
+        <div class="seasonal-card" @onclick="() => ShowDetail(month)" style="cursor:pointer;">
+            <img src="images/@month.Image" class="img-fluid rounded mb-2 seasonal-card-img" alt="@month.Food" onerror="this.style.display='none'" />
+            <h5 class="fs-4">@month.Name</h5>
+            <p class="food-highlight fs-5">@month.Highlight</p>
+        </div>
+    }
+</div>
+
+@if (selectedMonth != null)
+{
+    <div class="chao-shan-card mt-4">
+        <h4 class="fs-2">@selectedMonth.Name</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="images/@selectedMonth.Image" class="img-fluid rounded food-detail-img" alt="@selectedMonth.Food" />
+            </div>
+            <div class="col-md-8">
+                <p class="fs-4"><strong>代表美食：</strong>@selectedMonth.Food</p>
+                <p class="fs-4">@selectedMonth.Description</p>
+                <p class="text-muted fs-5"><small>🍃 民俗：@selectedMonth.Custom</small></p>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary mt-2 fs-4" @onclick="() => selectedMonth = null">关闭</button>
+    </div>
+}
+
+@code {
+    class MonthInfo
+    {
+        public string Name { get; set; } = "";
+        public string Highlight { get; set; } = "";
+        public string Food { get; set; } = "";
+        public string Image { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string Custom { get; set; } = "";
+    }
+
+    List<MonthInfo> months = new()
+    {
+        new() { Name="正月·春节", Highlight="红桃粿、甜粿", Food="红桃粿", Image="hongtaoguo.png", Description="糯米香菇饭为馅，染上红曲印成桃形，拜神祭祖必备。", Custom="正月初一食斋，初四“神落天”做粿迎神。" },
+        new() { Name="二月·春社", Highlight="春卷、朴籽粿", Food="朴籽粿", Image="puziguo.png", Description="采摘朴树嫩叶捣汁和米浆蒸制，清明前后特有，清热去积。", Custom="二月社日祭土地神，食粿祈求五谷丰登。" },
+        new() { Name="三月·清明", Highlight="薄饼、鼠壳粿", Food="糖葱薄饼", Image="tangcongbaobing.png", Description="糖葱薄饼是清明食俗，薄如蝉翼的饼皮包裹糖葱、芝麻，酥甜不腻。", Custom="扫墓踏青，薄饼作祭品，亦有寒食遗风。" },
+        new() { Name="五月·端午", Highlight="栀粽、粽子", Food="栀粽", Image="zongzi.png", Description="用栀子水浸泡糯米，做成黄色碱水粽，蘸白糖吃，清凉解毒。", Custom="赛龙舟、食栀粽、挂艾草，驱邪避疫。" },
+        new() { Name="七月·中元", Highlight="安仔粿、芋头粿", Food="安仔粿", Image="anzaiguo.png", Description="做成小人形状的粿品，祭拜孤魂，寓意安抚。", Custom="七月半施孤，做粿施食，祈求平安。" },
+        new() { Name="八月·中秋", Highlight="朥饼、书册糕", Food="朥饼", Image="laobing.png", Description="潮式月饼，皮酥馅厚，以绿豆沙或乌豆沙为馅，脂香浓郁。", Custom="拜月娘，食朥饼，喝工夫茶，一家人团圆。" },
+        new() { Name="十月·立冬", Highlight="炣饭、橄榄", Food="炣饭", Image="chaofan.png", Description="用芋头、香菇、虾米、肉丁与饭同煮，香气扑鼻，寓意进补。", Custom="立冬进补，食炣饭，啃甘蔗，强身健体。" },
+        new() { Name="冬节", Highlight="冬节丸", Food="冬节丸", Image="dongjiewan.png", Description="糯米团子在糖花生芝麻粉里滚一圈，软糯甜香，又叫“胶罗钱”。", Custom="冬至大过年，食冬节丸大一岁。" },
+        new() { Name="腊月·除夕", Highlight="卤鹅、团圆饭", Food="卤鹅", Image="luer.png", Description="潮汕卤水天下闻名，狮头鹅慢火卤制，是年夜饭的重头戏。", Custom="围炉、拜祖先、换春联、放鞭炮。" },
+    };
+
+    MonthInfo? selectedMonth = null;
+
+    void ShowDetail(MonthInfo m) => selectedMonth = m;
+}

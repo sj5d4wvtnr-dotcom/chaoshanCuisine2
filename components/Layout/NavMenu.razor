@@ -1,0 +1,72 @@
+@* 导航菜单，内嵌样式强制主题文字 5rem 大字号 *@
+<style>
+    .nav-motto-main, .nav-motto-sub {
+        font-size: 5rem !important;   /* 强制最大字体 */
+        font-weight: 900 !important;
+        color: white !important;
+        text-shadow: 3px 3px 8px rgba(0,0,0,0.4) !important;
+        line-height: 1.1 !important;
+        letter-spacing: 2px !important;
+    }
+    .nav-motto-divider {
+        font-size: 4rem !important;
+        color: #D4A843 !important;
+        margin: 0 1.2rem !important;
+        vertical-align: middle !important;
+    }
+</style>
+
+<div class="nav-header">
+    <div class="nav-main-title">
+        <span class="nav-motto-main">楼藏雅韵</span>
+        <span class="nav-motto-divider">·</span>
+        <span class="nav-motto-sub">食蕴潮风</span>
+    </div>
+    <div class="nav-brand">
+        <span class="brand-icon">🏮</span>
+        <span class="brand-text">潮汕美食</span>
+    </div>
+</div>
+
+<nav class="nav-menu">
+    <div class="nav-item">
+        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <span class="nav-icon">🏠</span> 首页
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="foodmap">
+            <span class="nav-icon">🗺️</span> 美食地图
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="stories">
+            <span class="nav-icon">📜</span> 故事巷
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="kitchen">
+            <span class="nav-icon">🍳</span> 虚拟厨房
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="quiz">
+            <span class="nav-icon">🧠</span> 味道测验
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="seasonal">
+            <span class="nav-icon">📅</span> 时令食俗
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="gallery">
+            <span class="nav-icon">📸</span> 美食图鉴
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link" href="about">
+            <span class="nav-icon">ℹ️</span> 关于潮汕
+        </NavLink>
+    </div>
+</nav>

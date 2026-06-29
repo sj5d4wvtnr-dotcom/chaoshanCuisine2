@@ -1,0 +1,32 @@
+@page "/gallery"
+
+<h3 class="mt-4 fs-1">📸 潮汕美食图鉴</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var dish in dishes)
+    {
+        <div class="col">
+            <div class="chao-shan-card text-center h-100">
+                <img src="images/@dish.Image" class="img-fluid rounded mb-2 gallery-img" alt="@dish.Name" />
+                <h5 class="fs-3">@dish.Name</h5>
+                <p class="fs-4">@dish.Description</p>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    class DishItem { public string Name { get; set; } = ""; public string Image { get; set; } = ""; public string Description { get; set; } = ""; }
+
+    List<DishItem> dishes = new()
+    {
+        new(){Name="牛肉火锅", Image="niurouhuoguo.png", Description="现切现涮，清汤寡水，极致鲜美。"},
+        new(){Name="蚝烙", Image="haolao.png", Description="珠蚝与蛋液地瓜粉煎至金黄。"},
+        new(){Name="红桃粿", Image="hongtaoguo.png", Description="糯米香菇为馅，桃形红粿，节庆必备。"},
+        new(){Name="卤鹅", Image="luer.png", Description="狮头鹅慢火卤制，肉质咸香。"},
+        new(){Name="春饼", Image="chunbing.png", Description="薄饼卷蔬菜肉丝，炸至酥脆。"},
+        new(){Name="护国菜", Image="huguocai.png", Description="番薯叶羹，帝王传说，精细汤菜。"},
+        new(){Name="糖葱薄饼", Image="tangcongbaobing.png", Description="糖葱酥脆，薄饼一卷，童年滋味。"},
+        new(){Name="普宁豆干", Image="puningdougan.png", Description="外酥里嫩，蘸韭菜盐水。"},
+        new(){Name="工夫茶", Image="gongfucha.png", Description="凤凰单丛，三杯成品，茶薄人情厚。"},
+    };
+}

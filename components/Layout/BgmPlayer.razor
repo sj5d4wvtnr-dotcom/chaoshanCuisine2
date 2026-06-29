@@ -1,0 +1,38 @@
+﻿@inject IJSRuntime JS
+
+<div class="bgm-player">
+    <span class="music-icon">🎵</span>
+    <span class="status">@(isPlaying ? "潮韵·播放中" : "潮韵·暂停")</span>
+    <button @onclick="ToggleBgm" class="btn btn-sm btn-outline-primary">
+        @(isPlaying ? "⏸️ 暂停" : "▶️ 播放")
+    </button>
+    <input type="range" min="0" max="1" step="0.1" value="@volume" @onchange="ChangeVolume" />
+</div>
+
+<audio id="bgmAudio" loop autoplay muted src="audio/secret.mp3" hidden></audio>
+
+@code {
+    bool isPlaying = true;
+    double volume = 0.5;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initBgm", volume);
+            await JS.InvokeVoidAsync("autoPlayBgm");
+        }
+    }
+
+    async Task ToggleBgm()
+    {
+        isPlaying = !isPlaying;
+        await JS.InvokeVoidAsync("toggleBgm");
+    }
+
+    async Task ChangeVolume(ChangeEventArgs e)
+    {
+        volume = Convert.ToDouble(e.Value);
+        await JS.InvokeVoidAsync("setVolume", volume);
+    }
+}

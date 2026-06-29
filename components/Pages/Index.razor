@@ -1,0 +1,96 @@
+@page "/"
+@implements IDisposable
+
+<div class="main-title">
+    <span class="motto-main">楼藏雅韵</span>
+    <span class="motto-divider">◆</span>
+    <span class="motto-sub">食蕴潮风</span>
+</div>
+
+<p class="text-center lead fs-3 mt-2">"食在广州，味在潮汕"——细品工夫茶，慢啖杂咸香。</p>
+
+<div class="chao-shan-card mt-4">
+    <div class="carousel-slide">
+        @switch (currentSlide)
+        {
+            case 0:
+                <div class="slide-content">
+                    <h2 class="fs-1 mb-2">🍲 牛肉火锅 · 骑楼下的热气</h2>
+                    <p class="fs-4">清汤寡水，却把一头牛吃出了极致。汕头小公园的骑楼下，现切现涮，8秒入口，市井烟火与百年商埠的雅韵交融。</p>
+                    <div class="carousel-image-wrapper">
+                        <img src="images/niurouhuoguo.png" alt="牛肉火锅" class="carousel-image" />
+                    </div>
+                </div>
+                break;
+            case 1:
+                <div class="slide-content">
+                    <h2 class="fs-1 mb-2">🥢 红桃粿 · 祠堂前的供品</h2>
+                    <p class="fs-4">“时节做时粿”，糯米香菇为馅，染上红曲，印成寿桃。在潮汕祠堂的雕梁画栋前，红桃粿是敬神祭祖、维系宗族的雅食。</p>
+                    <div class="carousel-image-wrapper">
+                        <img src="images/hongtaoguo.png" alt="红桃粿" class="carousel-image" />
+                    </div>
+                </div>
+                break;
+            case 2:
+                <div class="slide-content">
+                    <h2 class="fs-1 mb-2">🍵 工夫茶 · 书斋里的清韵</h2>
+                    <p class="fs-4">“关公巡城，韩信点兵”，三杯成“品”。在老厝的书斋里，茶薄人情厚，潮人将建筑之雅与饮食之韵融为一体。</p>
+                    <div class="carousel-image-wrapper">
+                        <img src="images/gongfucha.png" alt="工夫茶" class="carousel-image" />
+                    </div>
+                </div>
+                break;
+        }
+    </div>
+    <div class="carousel-indicators">
+        <span class="dot @(currentSlide == 0 ? "active" : "")" @onclick="() => SetSlide(0)"></span>
+        <span class="dot @(currentSlide == 1 ? "active" : "")" @onclick="() => SetSlide(1)"></span>
+        <span class="dot @(currentSlide == 2 ? "active" : "")" @onclick="() => SetSlide(2)"></span>
+    </div>
+</div>
+
+<div class="chao-shan-card text-center mt-3">
+    <h5 class="fs-2">💬 今日潮谚</h5>
+    <p class="lead fs-3">“@proverbText”</p>
+    <small class="text-muted fs-4">@proverbExplain</small>
+</div>
+
+<p class="mt-4 text-center text-muted fs-4">「潮之州，大海在其南」——韩愈</p>
+
+@code {
+    int currentSlide = 0;
+    Timer? timer;
+    string proverbText = "";
+    string proverbExplain = "";
+
+    List<(string text, string explain)> proverbs = new()
+    {
+        ("茶薄人情厚", "茶虽淡，情义却浓。"),
+        ("食饱穿烧，平安大赚", "吃饱穿暖，平安发财，最朴素的祝福。"),
+        ("嫁走仔，免用刀仔", "嫁女儿时忙得连小刀都不用，形容宴席丰盛。"),
+        ("猛火厚朥芳臊汤", "炒菜要火大油多汤香，是潮菜精髓。"),
+        ("未曾食过三日菜脯", "比喻没见过世面。菜脯即萝卜干。"),
+    };
+
+    protected override void OnInitialized()
+    {
+        // 显式使用 TimerCallback 委托，避免 Lambda 转换错误
+        timer = new Timer(new TimerCallback(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                currentSlide = (currentSlide + 1) % 3;
+                StateHasChanged();
+            });
+        }), null, 0, 4000);
+
+        var rnd = new Random();
+        var pick = proverbs[rnd.Next(proverbs.Count)];
+        proverbText = pick.text;
+        proverbExplain = pick.explain;
+    }
+
+    void SetSlide(int index) => currentSlide = index;
+
+    public void Dispose() => timer?.Dispose();
+}
