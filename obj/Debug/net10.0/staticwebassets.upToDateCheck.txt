@@ -1,4 +1,5 @@
 wwwroot\audio\secret.mp3
+wwwroot\css\app.css
 wwwroot\icon-192.png
 wwwroot\images\anzaiguo.png
 wwwroot\images\chaofan.png
@@ -30,7 +31,6 @@ wwwroot\images\zongzi.png
 wwwroot\index.html
 wwwroot\js\bgm.js
 wwwroot\_redirects
-wwwroot\css\app.css
-C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\wwwroot\index.html
-C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\wwwroot\js\bgm.js
-C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\wwwroot\css\app.css
+C:\Users\PORTRO\Desktop\程序\ChaoshanCuisine\wwwroot\css\app.css
+C:\Users\PORTRO\Desktop\程序\ChaoshanCuisine\wwwroot\index.html
+C:\Users\PORTRO\Desktop\程序\ChaoshanCuisine\wwwroot\js\bgm.js

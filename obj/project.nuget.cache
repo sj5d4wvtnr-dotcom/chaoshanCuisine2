@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DIW198nTdY4=",
+  "dgSpecHash": "qLCzFUjnwM8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\chaoshanCuisine.csproj",
+  "projectFilePath": "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\chaoshanCuisine.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PORTRO\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512",
     "C:\\Users\\PORTRO\\.nuget\\packages\\microsoft.aspnetcore.authorization\\10.0.0\\microsoft.aspnetcore.authorization.10.0.0.nupkg.sha512",

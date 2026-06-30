@@ -11,80 +11,80 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = false
+build_property.InvariantGlobalization = true
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = chaoshanCuisine
 build_property.RootNamespace = chaoshanCuisine
-build_property.ProjectDir = C:\Users\PORTRO\Desktop\程序\chaoshanCuisine\
+build_property.ProjectDir = C:\Users\PORTRO\Desktop\程序\ChaoshanCuisine\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\PORTRO\Desktop\程序\chaoshanCuisine
+build_property.MSBuildProjectDirectory = C:\Users\PORTRO\Desktop\程序\ChaoshanCuisine
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/App.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Layout/BgmPlayer.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Layout/BgmPlayer.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xMYXlvdXRcQmdtUGxheWVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Layout/MainLayout.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Layout/NavMenu.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/About.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/About.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Error.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/FoodMap.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/FoodMap.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xGb29kTWFwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Gallery.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Gallery.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xHYWxsZXJ5LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Index.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Kitchen.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Kitchen.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xLaXRjaGVuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/NotFound.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Quiz.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Quiz.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xRdWl6LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Seasonal.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Seasonal.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xTZWFzb25hbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/components/Pages/Stories.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/components/Pages/Stories.razor]
 build_metadata.AdditionalFiles.TargetPath = Y29tcG9uZW50c1xQYWdlc1xTdG9yaWVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PORTRO/Desktop/程序/chaoshanCuisine/_Imports.razor]
+[C:/Users/PORTRO/Desktop/程序/ChaoshanCuisine/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,7 +1,8 @@
 @page "/kitchen"
+@using System.Linq
 
 <h3 class="mt-4 fs-1">🍳 虚拟厨房 · 潮味实验室</h3>
-<p class="fs-4">将食材拖入碗中，看看能组合出什么潮汕美味（或黑暗料理）！</p>
+<p class="fs-4">桌面端：拖拽食材到碗中；手机端：直接点击食材即可添加。</p>
 
 <div class="kitchen-area">
     <div class="ingredient-panel">
@@ -11,7 +12,9 @@
             {
                 <div class="ingredient fs-4" draggable="true"
                      @ondragstart="(e) => OnDragStart(e, item)"
-                     @ondragend="(e) => isDragging = false">
+                     @ondragend="(e) => isDragging = false"
+                     @onclick="() => AddIngredient(item)"
+                     style="cursor:pointer;">
                     @item.Emoji @item.Name
                 </div>
             }
@@ -72,6 +75,15 @@
 
     record Dish(string DishName, string Emoji, int Score, string Description);
     Dish? result;
+
+    void AddIngredient(Ingredient item)
+    {
+        if (!selectedIngredients.Any(x => x.Name == item.Name))
+        {
+            selectedIngredients.Add(item);
+            StateHasChanged();
+        }
+    }
 
     void OnDragStart(DragEventArgs e, Ingredient item)
     {

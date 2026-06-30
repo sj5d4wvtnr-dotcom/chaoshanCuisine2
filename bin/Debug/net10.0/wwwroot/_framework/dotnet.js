@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "chaoshanCuisine",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-+z0M2EYyczv3FgcARI4uBxm/9QT1ksUk8qnApZTg+Yc=",
+    "hash": "sha256-B1+vmh/ONiVH399kKYdmuR98pJhjEM/SPKncXc1hdVA=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.ikrs475e5v.js"
@@ -20,26 +20,6 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       {
         "name": "dotnet.native.veuqw8a0w9.wasm",
         "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
-        "cache": "force-cache"
-      }
-    ],
-    "icu": [
-      {
-        "virtualPath": "icudt_CJK.dat",
-        "name": "icudt_CJK.tjcz0u77k5.dat",
-        "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
-        "cache": "force-cache"
-      },
-      {
-        "virtualPath": "icudt_EFIGS.dat",
-        "name": "icudt_EFIGS.tptq2av103.dat",
-        "hash": "sha256-8fItetYY8kQ0ww6oxwTLiT3oXlBwHKumbeP2pRF4yTc=",
-        "cache": "force-cache"
-      },
-      {
-        "virtualPath": "icudt_no_CJK.dat",
-        "name": "icudt_no_CJK.lfu7j35m59.dat",
-        "hash": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs=",
         "cache": "force-cache"
       }
     ],
@@ -1242,16 +1222,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "chaoshanCuisine.wasm",
-        "name": "chaoshanCuisine.lyhkm69m8t.wasm",
-        "hash": "sha256-E6qgfjbRUpi7l30NhnwZngel+Qp9WYbNQXlUdPHkN9Q=",
+        "name": "chaoshanCuisine.70tivkc5b8.wasm",
+        "hash": "sha256-V7Kz2bRFCt83Lowvzmq0S0I+p/JxER7mlg+7SS106ic=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "chaoshanCuisine.pdb",
-        "name": "chaoshanCuisine.uhugsfls9c.pdb",
-        "hash": "sha256-nnmiaVqLK7rOEeOovN/jBEnugF8DzJ/1RJDD5199jjk=",
+        "name": "chaoshanCuisine.60mavof4iy.pdb",
+        "hash": "sha256-GqN5FSkuVirocVXg/0lHYhQmOqfT+g2N5OEQJCPEwGc=",
         "cache": "force-cache"
       }
     ],
@@ -1267,7 +1247,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
     ]
   },
   "debugLevel": -1,
-  "globalizationMode": "sharded",
+  "globalizationMode": "invariant",
   "extensions": {
     "blazor": {}
   },
@@ -1284,8 +1264,9 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
         "System.Diagnostics.Metrics.Meter.IsSupported": false,
         "System.Diagnostics.Tracing.EventSource.IsSupported": false,
         "System.GC.Server": true,
-        "System.Globalization.Invariant": false,
+        "System.Globalization.Invariant": true,
         "System.TimeZoneInfo.Invariant": false,
+        "System.Globalization.PredefinedCulturesOnly": true,
         "System.Linq.Enumerable.IsSizeOptimized": true,
         "System.Net.Http.EnableActivityPropagation": false,
         "System.Net.Http.WasmEnableStreamingResponse": true,

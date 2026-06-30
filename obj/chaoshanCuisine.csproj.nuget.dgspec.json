@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\chaoshanCuisine.csproj": {}
+    "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\chaoshanCuisine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\chaoshanCuisine.csproj": {
+    "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\chaoshanCuisine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\chaoshanCuisine.csproj",
+        "projectUniqueName": "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\chaoshanCuisine.csproj",
         "projectName": "chaoshanCuisine",
-        "projectPath": "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\chaoshanCuisine.csproj",
+        "projectPath": "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\chaoshanCuisine.csproj",
         "packagesPath": "C:\\Users\\PORTRO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PORTRO\\Desktop\\程序\\chaoshanCuisine\\obj\\",
+        "outputPath": "C:\\Users\\PORTRO\\Desktop\\程序\\ChaoshanCuisine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\新建文件夹\\bianc3\\NuGetPackages"
@@ -61,12 +61,12 @@
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.0-*, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.0-*, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
